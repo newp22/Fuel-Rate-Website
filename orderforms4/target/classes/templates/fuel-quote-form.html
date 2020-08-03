@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>fuel quote form</title>
+</head>
+
+<body>
+
+<h1>fuel quote form</h1>
+
+<a th:href="account-overview">go back</a><br><br>
+
+<div>
+    <label>How many gallons do you want to request?</label>
+    <input name="gallons"><br><br>
+</div>
+
+<form th:action="@{/processing-quote}"  method="post">
+
+<table>
+    <tr>
+        <td><label>To be delivered to:</label></td>
+        <td>Select a delivery date<br>
+            <input type="date" name="deliveryDate"/></td>
+    </tr>
+    <tr>
+        <td> <textarea id="delivAddress" name="dAddr" rows="20" cols="25" disabled="disabled">
+address1:
+17930 Gable Oak LN,
+Cypress, TX 77323-252
+
+address2:
+12389 Conmey Soj Dr
+Caporet, AE 83103-432
+    </textarea>
+    </tr>
+    <tr>
+        <td>
+            <p>suggested price/gallon:</p>
+            <button>get quote</button>
+        </td>
+        <td>
+            <input type="text" rows="3" cols="45" disabled="disabled" placeholder="$0.00">
+        </td>
+    </tr>
+</table>
+</form>
+
+
+<form th:action="@{/submitted}" method="post">
+    <button>submit your quote</button>
+    <a th:href="@{/account-overview}">return</a>
+</form>
+
+
+</body>
+</html>

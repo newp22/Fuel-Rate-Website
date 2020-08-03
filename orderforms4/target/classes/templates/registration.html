@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>register for an account</title>
+</head>
+<body>
+
+<h2>registration</h2>
+
+<form th:action="@{/registration/submit}" th:object="${registerForm}" method="post">
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" name="user" th:field="*{user}" /></td>
+        </tr>
+
+        <tr>
+            <td>Password:</td>
+            <td><input type="text" name="pass" th:field="*{pass}" /></td>
+        </tr>
+
+        <tr>
+            <td>Confirm your Password:</td>
+            <td><input type="text" name="pass2" th:field="*{pass2}"/></td>
+        </tr>
+
+        <tr>
+            <td>
+                <a th:href="@{/home}">cancel</a>
+                <button type="submit">signup</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
